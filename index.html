@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- EDIT: page title — your names & date -->
+<title>Vivienne &amp; Alexander — September 18, 2027</title>
+<meta name="description" content="Together with their families, Vivienne & Alexander invite you to celebrate their wedding on Saturday, September 18, 2027 at The Beaumont Manor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ 0. ENVELOPE INTRO (signature opening) ============ -->
+<!-- EDIT: envelope intro — your names & monogram. To remove the intro entirely,
+     delete this block AND the envelope JS section in script.js. -->
+<div id="envelope-intro" role="dialog" aria-modal="true" aria-label="Wedding invitation — tap to open" tabindex="0">
+  <div class="env-stage">
+    <p class="env-script">You're Invited</p>
+    <!-- EDIT: couple names on the envelope -->
+    <p class="env-names">Vivienne <span class="amp">&amp;</span> Alexander</p>
+    <div class="envelope" aria-hidden="true">
+      <div class="env-back"></div>
+      <div class="env-letter">
+        <!-- EDIT: monogram on the letter -->
+        <p class="env-letter-mono">V · A</p>
+        <p class="env-letter-names">Vivienne &amp; Alexander</p>
+        <div class="env-letter-rule"></div>
+        <!-- EDIT: wedding date on the letter -->
+        <p class="env-letter-date">Saturday, September 18, 2027</p>
+      </div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <!-- the wax seal sits on the flap's point; it "breaks" (fades) when opened -->
+      <div class="wax-seal"><span>V · A</span></div>
+    </div>
+    <p class="env-tap">tap to open</p>
+  </div>
+</div>
+
+<!-- ============ 1. NAV ============ -->
+<nav id="nav">
+  <!-- EDIT: monogram — your initials -->
+  <a href="#top" class="brand">V <span>·</span> A</a>
+  <button class="menu-btn" aria-label="Open menu">☰</button>
+  <div class="links">
+    <a href="#story">Our Story</a><a href="#details">Details</a><a href="#schedule">Schedule</a>
+    <a href="#venue">Venue</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a>
+    <a href="#rsvp" class="btn small">RSVP</a>
+  </div>
+</nav>
+
+<!-- ============ 2. HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <!-- EDIT: the one script accent line -->
+    <p class="script">together with their families</p>
+    <!-- EDIT: couple names -->
+    <h1>Vivienne <span class="amp">&</span> Alexander</h1>
+    <p class="caps gold date">Saturday, September 18, 2027</p>
+    <!-- EDIT: venue name -->
+    <p class="caps venue">The Beaumont Manor</p>
+    <div class="botanical-hero" aria-hidden="true">
+      <svg viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="8" y1="12" x2="78" y2="12" stroke="#C6A15B" stroke-width="1"/>
+        <line x1="122" y1="12" x2="192" y2="12" stroke="#C6A15B" stroke-width="1"/>
+        <path d="M100 20 C 100 15, 100 10, 100 4" stroke="#E8CFC0" stroke-width="1" stroke-linecap="round"/>
+        <path d="M100 17 C 95 16, 91 13, 90 8 C 95 9, 99 12, 100 17 Z" stroke="#E8CFC0" stroke-width="1"/>
+        <path d="M100 17 C 105 16, 109 13, 110 8 C 105 9, 101 12, 100 17 Z" stroke="#E8CFC0" stroke-width="1"/>
+        <path d="M100 11 C 97 10, 95 8, 95 5 C 98 6, 100 8, 100 11 Z" stroke="#E8CFC0" stroke-width="1"/>
+        <path d="M100 11 C 103 10, 105 8, 105 5 C 102 6, 100 8, 100 11 Z" stroke="#E8CFC0" stroke-width="1"/>
+      </svg>
+    </div>
+    <!-- EDIT: countdown target lives in script.js (2027-09-18T16:00:00) -->
+    <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
+      <div><span id="d">0</span><label>Days</label></div>
+      <div><span id="h">0</span><label>Hours</label></div>
+      <div><span id="m">0</span><label>Minutes</label></div>
+      <div><span id="s">0</span><label>Seconds</label></div>
+    </div>
+    <div class="cta-row">
+      <a href="#rsvp" class="btn">Kindly Respond</a>
+      <a href="#details" class="btn ghost">The Details</a>
+    </div>
+  </div>
+  <a href="#story" class="scroll-hint" aria-label="Scroll to Our Story">↓</a>
+</header>
+
+<!-- Music toggle (no autoplay — plays only when tapped) -->
+<button id="music-toggle" aria-label="Play background music" title="Music">
+  <span class="note">♪</span><span class="mt-label">Music</span>
+</button>
+<audio id="wedding-music" src="audio/music.mp3" preload="none" loop></audio>
+
+<!-- ============ 3. OUR STORY ============ -->
+<section id="story" class="wrap narrow reveal">
+  <p class="caps gold center">Chapter One</p>
+  <h2 class="center">Our Story</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <div class="two-col">
+    <!-- EDIT: replace images/couple.webp with your photo (same name or update the path) -->
+    <img class="frame" src="images/couple.webp" alt="Vivienne and Alexander">
+    <div>
+      <!-- EDIT: rewrite with your own story -->
+      <p>It began, as the finest things do, with a glance across a crowded room — a spring charity ball, a shared laugh over the string quartet, and a dance that neither of them wanted to end.</p>
+      <p>What followed were stolen weekends, long letters, and Sunday mornings at the manor — Vivienne's laughter, Alexander's quiet certainty, and a thousand small moments that gathered, quietly, into a life.</p>
+      <p>And so, beneath the old oak at dusk — with a ring that had waited a century for its moment — Alexander asked, and Vivienne said yes.</p>
+      <p class="sign">Vivienne &amp; Alexander</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. WEDDING DETAILS ============ -->
+<section id="details" class="wrap reveal">
+  <p class="caps gold center">When &amp; Where</p>
+  <h2 class="center">Wedding Details</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <div class="cards">
+    <!-- EDIT: ceremony details -->
+    <div class="card">
+      <p class="caps gold">The Ceremony</p>
+      <h3>The Rose Garden</h3>
+      <p>Saturday, September 18, 2027<br>at four o'clock in the afternoon<br>The Beaumont Manor<br><span class="muted">Seating begins at half past three</span></p>
+      <a class="link" href="https://maps.google.com/?q=The%20Beaumont%20Manor" target="_blank" rel="noopener">View map →</a>
+    </div>
+    <!-- EDIT: reception details -->
+    <div class="card">
+      <p class="caps gold">The Reception</p>
+      <h3>The Burgundy Hall</h3>
+      <p>Saturday, September 18, 2027<br>cocktails at half past five, dinner at seven<br>The Beaumont Manor<br><span class="muted">Dancing until eleven o'clock</span></p>
+      <a class="link" href="https://maps.google.com/?q=The%20Beaumont%20Manor" target="_blank" rel="noopener">View map →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. SCHEDULE ============ -->
+<section id="schedule" class="wrap narrow reveal">
+  <p class="caps gold center">Order of Events</p>
+  <h2 class="center">The Day</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <!-- EDIT: adjust times & events -->
+  <div class="timeline">
+    <div class="t-row"><span>3:30 PM</span><div><h4>Guest Arrival</h4><p>Champagne and a string quartet on the manor lawn.</p></div></div>
+    <div class="t-row"><span>4:00 PM</span><div><h4>The Ceremony</h4><p>Vows exchanged in the rose garden at golden hour.</p></div></div>
+    <div class="t-row"><span>5:30 PM</span><div><h4>Cocktail Hour</h4><p>Burgundy and canapés on the stone terrace.</p></div></div>
+    <div class="t-row"><span>7:00 PM</span><div><h4>The Reception</h4><p>Dinner and toasts in the Burgundy Hall.</p></div></div>
+    <div class="t-row"><span>9:30 PM</span><div><h4>First Dance</h4><p>The floor opens — dancing beneath the crystal chandeliers.</p></div></div>
+    <div class="t-row"><span>11:00 PM</span><div><h4>Farewell</h4><p>A candlelit send-off on the manor steps.</p></div></div>
+  </div>
+</section>
+
+<!-- ============ 6. VENUE ============ -->
+<section id="venue" class="wrap reveal">
+  <p class="caps gold center">The Setting</p>
+  <h2 class="center">The Beaumont Manor</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <!-- EDIT: replace images/venue.webp with a photo of your venue -->
+  <img class="wide-img frame" src="images/venue.webp" alt="The Beaumont Manor">
+  <p class="center venue-copy">A grand nineteenth-century manor wrapped in ivy and roses — a candlelit hall, a stone terrace made for golden hour, and the rose garden where we will say our vows. Complimentary valet parking is provided at the main gates from 3:00 PM.</p>
+  <div class="map-frame">
+    <iframe title="Map — The Beaumont Manor" src="https://www.google.com/maps?q=Beaumont+Manor&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<!-- ============ 7. GALLERY ============ -->
+<section id="gallery" class="wrap reveal">
+  <p class="caps gold center">In Frames</p>
+  <h2 class="center">Gallery</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <!-- EDIT: replace the four gallery photos (keep the file names) -->
+  <div class="gallery">
+    <figure class="frame"><img src="images/gallery-1.webp" alt="Vivienne and Alexander — portrait one"></figure>
+    <figure class="frame"><img src="images/gallery-2.webp" alt="Vivienne and Alexander — portrait two"></figure>
+    <figure class="frame"><img src="images/gallery-3.webp" alt="Vivienne and Alexander — portrait three"></figure>
+    <figure class="frame"><img src="images/gallery-4.webp" alt="Vivienne and Alexander — portrait four"></figure>
+  </div>
+</section>
+
+<!-- ============ 8. LOVE STORY ============ -->
+<section id="love-story" class="wrap narrow reveal">
+  <p class="caps gold center">How It Unfolded</p>
+  <h2 class="center">Love Story</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <!-- EDIT: rewrite the milestones with your own -->
+  <div class="milestones">
+    <div class="m-row"><span class="m-date">Spring 2022</span><div><h4>The Meeting</h4><p>A charity ball, a shared laugh, and one dance that neither wanted to end.</p></div></div>
+    <div class="m-row"><span class="m-date">Winter 2023</span><div><h4>The Courtship</h4><p>Stolen weekends, long letters, and Sunday mornings at the manor.</p></div></div>
+    <div class="m-row"><span class="m-date">Summer 2026</span><div><h4>The Question</h4><p>Beneath the old oak at dusk — a century-old ring, one question, one yes.</p></div></div>
+    <div class="m-row"><span class="m-date">Autumn 2027</span><div><h4>The Beginning</h4><p>And now, surrounded by everyone we love, we begin the rest of our lives.</p></div></div>
+  </div>
+</section>
+
+<!-- ============ 9. REGISTRY ============ -->
+<section id="registry" class="wrap reveal">
+  <p class="caps gold center">With Gratitude</p>
+  <h2 class="center">Registry</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <p class="center muted registry-intro">Your presence is the greatest gift. Should you wish to give more, we are grateful for contributions toward the following.</p>
+  <!-- EDIT: update registry names, descriptions & links -->
+  <div class="cards three">
+    <div class="card">
+      <p class="caps gold">Fund</p>
+      <h3>The Honeymoon</h3>
+      <p>A contribution toward two weeks in Tuscany — vineyards, villas, and slow golden evenings.</p>
+      <a class="link" href="#" >Contribute →</a>
+    </div>
+    <div class="card">
+      <p class="caps gold">Fund</p>
+      <h3>Our First Home</h3>
+      <p>Toward the manor of our own we keep dreaming about — every stone laid with love.</p>
+      <a class="link" href="#" >Contribute →</a>
+    </div>
+    <div class="card">
+      <p class="caps gold">Registered At</p>
+      <h3>The Heirloom List</h3>
+      <p>Our curated registry of fine china, crystal, and linens — pieces to keep for generations.</p>
+      <a class="link" href="#" >View registry →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. DRESS CODE ============ -->
+<section id="dress-code" class="wrap narrow reveal">
+  <p class="caps gold center">A Note on Attire</p>
+  <h2 class="center">Dress Code</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 212 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <!-- EDIT: adjust the dress code -->
+  <div class="dress-card">
+    <p class="caps gold center">Black Tie</p>
+    <h3 class="center">Formal Evening Attire</h3>
+    <ul class="dress-list">
+      <li><strong>Gentlemen</strong> — tuxedo, black bow tie, patent or polished dress shoes.</li>
+      <li><strong>Ladies</strong> — floor-length gowns; an elegant cocktail dress in jewel tones is equally welcome.</li>
+      <li><strong>Palette</strong> — burgundy, champagne, blush, ivory, and black are most welcome. We kindly ask that guests refrain from wearing white.</li>
+      <li><strong>A practical note</strong> — the ceremony takes place in the rose garden; block heels are advised over stilettos.</li>
+      <li><strong>Evening</strong> — September evenings can turn crisp; a wrap or tailored coat is recommended.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 11. RSVP ============ -->
+<section id="rsvp" class="rsvp-section reveal">
+  <div class="wrap narrow">
+    <p class="caps gold center">Will You Join Us?</p>
+    <h2 class="center">Répondez S'il Vous Plaît</h2>
+    <div class="divider-botanical light" aria-hidden="true">
+      <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+        <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+        <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+        <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+        <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+          <path d="M210 40 C 210 30, 210 20, 210 8"/>
+          <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+          <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+          <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+          <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+          <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+          <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+          <circle cx="210" cy="6" r="1.6"/>
+        </g>
+      </svg>
+    </div>
+    <!-- EDIT: reply-by date -->
+    <p class="center rsvp-note">Kindly reply by August 1st, 2027.</p>
+    <form id="rsvp-form" class="rsvp-form" novalidate>
+      <div class="field"><label for="f-name">Full name *</label><input id="f-name" required type="text" name="name" placeholder="Your name" autocomplete="name"></div>
+      <div class="field"><label for="f-email">Email *</label><input id="f-email" required type="email" name="email" placeholder="you@example.com" autocomplete="email"></div>
+      <div class="field"><label>Will you attend? *</label>
+        <div class="radio-row">
+          <label><input type="radio" name="attend" value="accepts" checked> Joyfully accepts</label>
+          <label><input type="radio" name="attend" value="declines"> Regretfully declines</label>
+        </div>
+      </div>
+      <div class="field"><label for="f-guests">Number of guests</label>
+        <select id="f-guests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+      </div>
+      <div class="field"><label for="f-diet">Dietary requirements</label><input id="f-diet" type="text" name="diet" placeholder="Vegetarian, allergies…"></div>
+      <div class="field"><label for="f-msg">Message for the couple</label><textarea id="f-msg" name="message" rows="3" placeholder="Song requests, well wishes…"></textarea></div>
+      <button class="btn" type="submit" id="rsvp-submit">Send RSVP</button>
+    </form>
+    <div id="rsvp-done" class="rsvp-done hidden" role="status">
+      <p class="sign big">Thank you</p>
+      <p>Your reply has been received with gratitude.<br>We cannot wait to celebrate with you.</p>
+    </div>
+    <div id="rsvp-error" class="rsvp-error hidden" role="alert">
+      <p class="sign big">Oh dear</p>
+      <p>Something went wrong sending your RSVP. Please try again in a moment —<br>or email us directly and we will note your reply.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. FAQ ============ -->
+<section id="faq" class="wrap narrow reveal">
+  <p class="caps gold center">Good to Know</p>
+  <h2 class="center">Questions</h2>
+  <div class="divider-botanical" aria-hidden="true">
+    <svg viewBox="0 0 420 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="22" x2="168" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <line x1="252" y1="22" x2="404" y2="22" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="172" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <circle cx="248" cy="22" r="2.5" stroke="#C6A15B" stroke-width="1"/>
+      <g stroke="#E8CFC0" stroke-width="1" stroke-linecap="round">
+        <path d="M210 40 C 210 30, 210 20, 210 8"/>
+        <path d="M210 34 C 202 32, 196 27, 194 19 C 202 21, 208 26, 210 34 Z"/>
+        <path d="M210 34 C 218 32, 224 27, 226 19 C 218 21, 212 26, 210 34 Z"/>
+        <path d="M210 26 C 203 24, 198 20, 197 13 C 203 15, 208 19, 210 26 Z"/>
+        <path d="M210 26 C 217 24, 222 20, 223 13 C 217 15, 212 19, 210 26 Z"/>
+        <path d="M210 18 C 206 16, 204 13, 204 9 C 208 11, 210 14, 210 18 Z"/>
+        <path d="M210 18 C 214 16, 216 13, 216 9 C 212 11, 210 14, 210 18 Z"/>
+        <circle cx="210" cy="6" r="1.6"/>
+      </g>
+    </svg>
+  </div>
+  <!-- EDIT: adjust questions & answers -->
+  <div class="accordion">
+    <div class="acc"><button type="button">May I bring a plus-one?<span>+</span></button><div class="acc-body"><p>Plus-ones are named on your invitation. If you are unsure whether one is extended to you, please do ask us — we are delighted to clarify.</p></div></div>
+    <div class="acc"><button type="button">Are children welcome?<span>+</span></button><div class="acc-body"><p>We adore your little ones, but our wedding will be an adults-only celebration. We hope you enjoy the evening off.</p></div></div>
+    <div class="acc"><button type="button">May I take photographs?<span>+</span></button><div class="acc-body"><p>We are having an unplugged ceremony — kindly keep phones and cameras tucked away until the reception, then photograph to your heart's content.</p></div></div>
+    <div class="acc"><button type="button">Is parking available?<span>+</span></button><div class="acc-body"><p>Yes — complimentary valet parking is provided at the manor's main gates from 3:00 PM. A shuttle will run to the town centre at the end of the evening.</p></div></div>
+    <div class="acc"><button type="button">What about dietary requirements?<span>+</span></button><div class="acc-body"><p>Simply note them in your RSVP and our caterers will take the greatest care of you.</p></div></div>
+    <div class="acc"><button type="button">Where are you registered?<span>+</span></button><div class="acc-body"><p>Details are in the Registry section above. Truly, your presence is the greatest gift of all.</p></div></div>
+  </div>
+</section>
+
+<!-- ============ 13. FOOTER ============ -->
+<footer>
+  <!-- EDIT: monogram -->
+  <p class="brand big">V <span>·</span> A</p>
+  <div class="footer-rule" aria-hidden="true"></div>
+  <!-- EDIT: names -->
+  <p class="footer-names">Vivienne &amp; Alexander</p>
+  <!-- EDIT: date -->
+  <p class="caps gold">09 · 18 · 2027</p>
+  <p class="tiny">With love, for our favorite people.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

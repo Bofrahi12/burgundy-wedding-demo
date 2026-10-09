@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burgundy &amp; Gold — Wedding Website Template · Editing &amp; Publishing Guide</title>
+<style>
+  body{font-family:'Cormorant Garamond',Georgia,serif;color:#2E1A1E;background:#FAF6EF;margin:0;line-height:1.8}
+  .wrap{max-width:740px;margin:0 auto;padding:3rem 1.5rem 5rem}
+  h1{font-size:2.4rem;font-weight:500;margin-bottom:.2rem;text-align:center}
+  h2{font-size:1.6rem;font-weight:500;color:#5C1A24;margin-top:3rem;border-bottom:1px solid #C6A15B;padding-bottom:.5rem}
+  .sub{color:#8F7368;font-style:italic;margin-bottom:2rem;text-align:center}
+  .mono{text-align:center;letter-spacing:.3em;font-size:1.1rem;color:#A8843F;margin-bottom:2rem}
+  code{background:#F1E8D6;padding:.15rem .5rem;border-radius:4px;font-size:.9em;font-family:ui-monospace,monospace}
+  pre{background:#2A0B10;color:#F5EFE4;padding:1.1rem 1.3rem;overflow-x:auto;font-size:.86rem;line-height:1.6}
+  .step{background:#fff;border:1px solid #E7D8CB;padding:1.2rem 1.4rem;margin:1rem 0}
+  .step b.num{display:inline-block;background:#5C1A24;color:#fff;width:30px;height:30px;border-radius:50%;
+    text-align:center;line-height:30px;margin-right:.6rem;font-family:sans-serif;font-size:.9rem}
+  .warn{background:#FFF8E7;border:1px solid #C6A15B;padding:1rem 1.3rem;margin:1.2rem 0}
+  a{color:#A8843F}
+  .find{font-family:ui-monospace,monospace;font-size:.88rem}
+</style>
+</head>
+<body><div class="wrap">
+
+<p class="mono">V · A</p>
+<h1>Burgundy &amp; Gold</h1>
+<p class="sub">Old-Money Editorial Wedding Website — editing &amp; publishing guide.<br>No coding experience needed.</p>
+
+<h2>1. What's in your download</h2>
+<div class="step">
+<b class="num">▤</b><code>index.html</code> — every word on the site (names, dates, story, registry…)<br>
+<b class="num">✎</b><code>styles.css</code> — colors &amp; fonts (the design system)<br>
+<b class="num">⚙</b><code>script.js</code> — countdown date + your RSVP email<br>
+<b class="num">✉</b><code>#envelope-intro</code> — the signature opening envelope (top of <code>index.html</code> + styles in <code>styles.css</code>)<br>
+<b class="num">❧</b><code>images/</code> — your photos go here<br>
+<b class="num">♪</b><code>audio/music.mp3</code> — the gentle background track (plays only when a guest taps ♪ Music)</div>
+
+<h2>2. Preview it first</h2>
+<div class="step"><b class="num">1</b>Unzip the folder.<br>
+<b class="num">2</b>Double-click <code>index.html</code> — it opens in your browser. That is your site.<br>
+<b class="num">3</b>The burgundy envelope appears first — <b>click it once</b> to open it and reveal the site.</div>
+
+<h2>3. Make it yours</h2>
+<p>Open <code>index.html</code> in any text editor (Notepad, TextEdit). Every spot you must change is marked with an <code>&lt;!-- EDIT: … --&gt;</code> comment. The main ones:</p>
+<div class="step">
+<b class="num">A</b><b>Names</b> — search for <span class="find">Vivienne</span> and <span class="find">Alexander</span> (also the <span class="find">V · A</span> monogram in the nav, the envelope, and the footer) and replace with your names &amp; initials.<br>
+<b class="num">B</b><b>Date &amp; venue</b> — replace <span class="find">September 18, 2027</span> and <span class="find">The Beaumont Manor</span> everywhere.<br>
+<b class="num">C</b><b>Countdown</b> — open <code>script.js</code>, find <span class="find">2027-09-18T16:00:00</span> and set your wedding date &amp; time (format: YYYY-MM-DDTHH:MM:SS).<br>
+<b class="num">D</b><b>Your story</b> — rewrite the paragraphs in the <i>Our Story</i> and <i>Love Story</i> sections; adjust the <i>Schedule</i> times, <i>Registry</i> links, <i>Dress Code</i> and <i>FAQ</i> answers.<br>
+<b class="num">E</b><b>Colors</b> — open <code>styles.css</code>, find the <code>:root</code> block at the top: <code>--ivory</code>, <code>--burgundy</code>, <code>--ink</code>, <code>--gold</code>, <code>--blush</code>. Change the codes to re-theme the whole site at once.</div>
+
+<h2>4. The envelope intro</h2>
+<div class="step">Your guests first see a burgundy envelope sealed with your monogram — one tap opens the flap, the invitation card slides out, and the site is revealed. To change the names or monogram on it, find the <code>&lt;!-- EDIT: envelope intro --&gt;</code> comment at the very top of <code>index.html</code>.<br><br>
+<b>Prefer to skip it?</b> Delete the whole <code>&lt;div id="envelope-intro"&gt;…&lt;/div&gt;</code> block in <code>index.html</code> <b>and</b> the "ENVELOPE INTRO" section at the top of <code>script.js</code>. The site will load straight into the hero.</div>
+
+<h2>5. Photos</h2>
+<div class="step"><b class="num">1</b>Put your photos in the <code>images/</code> folder and name them exactly:<br>
+<code>couple.webp</code> (hero background + Our Story) · <code>venue.webp</code> (venue section) ·<br>
+<code>gallery-1.webp</code> <code>gallery-2.webp</code> <code>gallery-3.webp</code> <code>gallery-4.webp</code> (gallery)<br>
+<b class="num">2</b>Prefer JPG? Any format works — just update the file names inside <code>index.html</code> to match.<br>
+<b class="num">3</b>Tip: export at ~1600px wide for crisp full-screen quality.</div>
+
+<h2>6. Get RSVPs in your email ★ important</h2>
+<div class="step"><b class="num">1</b>In <code>script.js</code>, find <span class="find">const RSVP_EMAIL = "your@email.com"</span> and put <b>your</b> email address between the quotes. Save.<br>
+<b class="num">2</b>Open <code>index.html</code> in your browser, fill in the RSVP form once with a test reply and submit.<br>
+<b class="num">3</b>Check your inbox — you will receive an <b>activation email</b> from FormSubmit. <b>Click the activation link.</b><br>
+<b class="num">4</b>Done — every guest RSVP now arrives straight in your inbox. Free, no account needed.</div>
+<div class="warn">⚠️ <b>Do not skip step 3.</b> Until you click the activation link, FormSubmit holds your test RSVP and nothing is delivered.</div>
+
+<h2>7. The venue map</h2>
+<div class="step">The map under <i>Venue</i> is a live Google Map. To point it at your own venue, search your venue on <a href="https://maps.google.com">Google Maps</a>, then in <code>index.html</code> replace <span class="find">Beaumont+Manor</span> in the map <code>iframe</code> address with your venue's name (spaces as <code>+</code> or <code>%20</code>).</div>
+
+<h2>8. Publish it free — GitHub Pages (about 5 minutes)</h2>
+<div class="step"><b class="num">1</b>Create a free account at <a href="https://github.com">github.com</a> (skip if you have one).<br>
+<b class="num">2</b>Click <b>New repository</b> — name it e.g. <code>our-wedding</code>, set it Public, click <b>Create repository</b>.<br>
+<b class="num">3</b>Click <b>"uploading an existing file"</b> and drag in your whole unzipped site folder contents (<code>index.html</code>, <code>styles.css</code>, <code>script.js</code>, <code>START-HERE.html</code>, the <code>images/</code> and <code>audio/</code> folders). Click <b>Commit changes</b>.<br>
+<b class="num">4</b>Go to <b>Settings → Pages</b>. Under "Build and deployment", choose <b>Deploy from a branch</b>, branch <b>main</b>, folder <b>/(root)</b> — click <b>Save</b>.<br>
+<b class="num">5</b>Wait about a minute, refresh the Pages settings — your free link appears, like <code>yourname.github.io/our-wedding</code>. Share it with your guests!</div>
+<div class="warn">💍 <b>Want your own domain</b> (e.g. vivienneandalexander.com)? Buy it from any registrar, then in the same <b>Settings → Pages</b> page enter it under "Custom domain" and add the DNS records GitHub shows you. The site itself needs no changes.</div>
+<div class="warn">📱 <b>Tip:</b> open your published link on your phone — most guests will view it there. The layout is fully mobile-friendly.</div>
+
+<h2>9. FAQ</h2>
+<p><b>Can I change the fonts?</b> Yes — they load from Google Fonts at the top of <code>index.html</code>. Swap <code>Playfair+Display</code>, <code>Cormorant+Garamond</code>, <code>Great+Vibes</code> or <code>Jost</code> for any Google Font names.</p>
+<p><b>Can I remove a section?</b> Yes — each section in <code>index.html</code> is labeled (<code>&lt;!-- ============ 5. SCHEDULE ============ --&gt;</code> etc.). Delete the block you don't need.</p>
+<p><b>Can I change the music?</b> Yes — replace <code>audio/music.mp3</code> with your own MP3 (keep the same file name). It still plays only when a guest taps the ♪ button — never automatically.</p>
+<p><b>Something broke?</b> Re-download your original ZIP from Etsy and redo that step — you can't break anything permanently.</p>
+
+<p class="sub" style="margin-top:3rem">Questions? Message me on Etsy — I answer within 24 hours.<br><i>Wishing you a lifetime of love and laughter.</i></p>
+
+</div></body></html>
